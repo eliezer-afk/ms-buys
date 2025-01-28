@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Purchase from '../models/compra';
+import Compra from '../models/compra';
 
 // Registrar una nueva compra
 export const createPurchase = async (req: Request, res: Response) => {
@@ -7,7 +7,7 @@ export const createPurchase = async (req: Request, res: Response) => {
 
     try {
         // Crear la nueva compra en la base de datos
-        const newPurchase = await Purchase.create({
+        const newPurchase = await Compra.create({
             producto_id,
             fecha_compra,
             direccion_envio,
@@ -32,7 +32,7 @@ export const createPurchase = async (req: Request, res: Response) => {
 export const getAllPurchases = async (req: Request, res: Response) => {
     try {
         // Obtener todas las compras de la base de datos
-        const purchases = await Purchase.findAll();
+        const purchases = await Compra.findAll();
 
         // Responder con la lista de compras
         res.status(200).json({
@@ -54,7 +54,7 @@ export const getPurchaseById = async (req: Request, res: Response) => {
 
     try {
         // Buscar la compra en la base de datos por su ID
-        const purchase = await Purchase.findByPk(id);
+        const purchase = await Compra.findByPk(id);
 
         if (!purchase) {
             return res.status(404).json({

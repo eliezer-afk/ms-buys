@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 sequelize.sync().then(() => {
     app.listen(PORT, () => {
-        console.log(colors.bgCyan(`Catalog microservice running on port ${PORT}`));
+        console.log(colors.bgCyan(`Buys microservice running on port ${PORT}`));
     });
 }).catch(err => {
     console.error('Unable to connect to the database:', err);

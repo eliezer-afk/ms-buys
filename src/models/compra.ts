@@ -1,14 +1,14 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config/db';
 
-class Purchase extends Model {
+class Compra extends Model {
     public id!: number;
     public producto_id!: number;
     public fecha_compra!: string;
     public direccion_envio!: string;
 }
 
-Purchase.init({
+Compra.init({
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -19,7 +19,7 @@ Purchase.init({
         allowNull: false,
     },
     fecha_compra: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false,
         defaultValue: DataTypes.NOW,
     },
@@ -29,9 +29,9 @@ Purchase.init({
     },
 }, {
     sequelize,
-    modelName: 'Purchase',
+    modelName: 'Compra',
     tableName: 'purchases',
     timestamps: false,
 });
 
-export default Purchase;
+export default Compra;
