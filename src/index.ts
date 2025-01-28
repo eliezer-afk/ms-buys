@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use('/api/compra', router);
 
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 3000;
 
 sequelize.sync().then(() => {
     app.listen(PORT, () => {
